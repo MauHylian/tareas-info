@@ -2,38 +2,37 @@ import numpy as np
 import math
 
 # Contruye una matriz de probabilidades de transición
-filename = './datos.txt'
+filename = './datos-examen.txt'
 with open(filename, 'r') as f:
-    matriz = [[float(num) for num in line.split(',')] for line in f]
+    q = [[float(num) for num in line.split(',')] for line in f]
 
-matriz = np.array(matriz)
-print(matriz)
+q = np.array(q)
+print(q)
 print('')
 
-num_rows, num_cols = matriz.shape
+num_rows, num_cols = q.shape
 
-probabilities = []
+p = []
 for x in range(num_rows):
-    probabilities.append(input('Introduzca la probabilidad %d: ' %x))
+    p.append(float(input('Introduzca la probabilidad %d: ' % x)))
 
-print(probabilities)
+print(p)
 print('')
 
 sumP = 0
-for x in range(len(probabilities)):
-    sumP = sumP + float(probabilities[x])
+for x in range(len(p)):
+    sumP = sumP + float(p[x])
 
-# print(sumP)
-
-sumi = 0
+sum = 0
 for i in range(0, num_rows):
-    pi = probabilities[i]
-    sumk = 0
     for j in range(0, num_cols):
-        qij = matriz[i][j]
+        pi = p[i]
+        qij = q[i][j]
+
         sumt = 0
         for t in range(0, num_rows):
-            sumt += float(probabilities[t]) + matriz[t][j]
-        sumk += float(qij) * math.log(qij/sumt, 2)
-    sumi += float(pi) * sumk
-print(sumi)
+            sumt += p[t] * q[t][j]
+
+        sum += pi * qij * math.log(qij / sumt, 10)
+
+print("Capacidad del canal (I(A, B)) =", sum)
