@@ -87,7 +87,7 @@ void sortByProbability(int n, node p[])
 void display(int n, node p[])
 {
     int i, j;
-    cout << "\n\n\n\tSymbol\tProbability\tCode";
+    cout << "\n\n\n\tSimbolo\tProbabilidad\tCodigo";
     for (i = n - 1; i >= 0; i--) {
         cout << "\n\t" << p[i].sym << "\t\t" << p[i].pro << "\t";
         for (j = 0; j <= p[i].top; j++)
@@ -105,12 +105,12 @@ int main()
     node temp;
   
     // Input number of symbols
-    cout << "Enter number of symbols\t: ";
+    cout << "Numero de simbolos\t: ";
     cin >> n;
   
     // Input symbols
     for (i = 0; i < n; i++) {
-        cout << "Enter symbol " << i + 1 << " : ";
+        cout << "Ingresa simbolo " << i + 1 << " : ";
         cin >> ch;
 
         // Insert the symbol to node
@@ -120,7 +120,7 @@ int main()
     // Input probability of symbols
     float *x = new float[n];
     for (i = 0; i < n; i++) {
-        cout << "\nEnter probability of " << p[i].sym << " : ";
+        cout << "\nIngresa probabilidad de " << p[i].sym << " : ";
         //cout << x[i] << endl;
         cin >> x[i];
 
@@ -130,7 +130,7 @@ int main()
   
         // checking max probability
         if (total > 1) {
-            cout << "Invalid. Enter new values";
+            cout << "Invalido. Pon nuevos valores";
             total = total - p[i].pro;
             i--;
         }
