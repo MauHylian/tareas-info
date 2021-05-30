@@ -7,7 +7,6 @@ b = [freq[0]]
 l = freq
 
 for i, f in enumerate(freq):
-  print(i)
   if(i == len(freq) - 1):
     break
   else:
