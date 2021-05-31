@@ -7,9 +7,12 @@ freq = {
   "f": 0.16
 }
 
-intervalo = "cdaf"
-
 keys = list(freq.keys())
+print(keys)
+
+intervalo = input("Intervalo: ")
+redondear = input("Redondear (s, n): ") == "s"
+
 q = []
 
 prefix = ""
@@ -20,7 +23,10 @@ def print_float_arr(name, arr):
   print(name, end=' ')
   print("[", end='')
   for i, v in enumerate(arr):
-    print(round(v, 6), end='')
+    if redondear:
+      print(round(v, 6), end='')
+    else:
+      print(v, end='')
     if i != len(arr) - 1:
       print(", ", end='')
   print("]")
