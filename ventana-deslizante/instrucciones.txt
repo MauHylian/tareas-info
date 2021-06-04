@@ -1,0 +1,3 @@
+Uso: python ventana-deslizante.py textFile.txt slidingWindowBits lookAheadBufferBits
+
+Ejemplo: python ventana-deslizante.py texto.txt 8 4
